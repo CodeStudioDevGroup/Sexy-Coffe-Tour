@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #050505;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+}
+
+.hero-videos {
+  display: flex;
+  height: 100vh;
+}
+
+.hero-videos video {
+  width: 33%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.video-centro {
+  width: 40%;
+}
+
+/* OVERLAY CORREGIDO */
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENIDO CENTRAL */
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+/* TITULO */
+.titulo {
+  margin: 5px 0;
+  font-size: 2.8rem;
+}
+
+/* TEXTO */
+.subtext {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 10px 0;
+}
+
+/* NEON */
+.neon-text {
+  text-shadow:
+    0 0 5px #ff00cc,
+    0 0 10px #ff00cc,
+    0 0 20px #00f7ff;
+}
+
+/* BOTONES */
+.btn-cta {
+  margin-top: 15px;
+  background: linear-gradient(45deg, #ff00cc, #00f7ff);
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-form {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff00cc, #00f7ff);
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+/* RESTO IGUAL */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card img {
+  width: 260px;
+}
+
+.slider { overflow: hidden; }
+
+.slide-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+.slide-track img {
+  width: 200px;
+  margin: 10px;
+}
+
+@keyframes scroll {
+  100% { transform: translateX(-50%); }
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.grid img {
+  width: 180px;
+  cursor: pointer;
+}
+
+/* REDES */
+.social-float {
+  position: fixed;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.icon img {
+  width: 40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .hero-videos {
+    flex-direction: column;
+  }
+
+  .hero-videos video {
+    width: 100%;
+    height: 33vh;
+  }
+
+  .video-centro {
+    width: 100%;
+  }
+
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 60px;
+  }
+
+  .subtext {
+    font-size: 1rem;
+  }
+}
+
+/* AUDIO NIVEL DIOS */
+.audio-control {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(45deg, #ff00cc, #00f7ff);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 999;
+  box-shadow: 0 0 15px #ff00cc;
+  transition: 0.3s;
+}
+
+.audio-control:hover {
+  transform: scale(1.1);
+}

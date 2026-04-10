@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <!-- SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sexy Coffee Tour | Experiencias VIP Exclusivas</title>
+
+  <meta name="description" content="Agencia premium de experiencias VIP exclusivas.">
+  <meta name="keywords" content="experiencias VIP, agencia premium, acompañantes">
+  <meta name="author" content="Sexy Coffee Tour">
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-videos">
+    <video autoplay muted loop playsinline>
+      <source src="videos contenido/2.mp4">
+    </video>
+
+    <video class="video-centro" autoplay muted loop playsinline>
+      <source src="videos contenido/portada.mp4">
+    </video>
+
+    <video autoplay muted loop playsinline>
+      <source src="videos contenido/3.mp4">
+    </video>
+  </div>
+
+  <div class="overlay">
+    <div class="hero-content">
+
+      <img src="logo.jpeg" class="logo">
+
+      <h1 class="neon-text titulo">Sexy Coffee Tour</h1>
+
+      <p class="subtext">
+        Las mejores experiencias exclusivas que podrás encontrar en nuestra agencia
+      </p>
+
+      <a href="https://wa.me/573145913001?text=Hola,%20quiero%20información%20sobre%20las%20experiencias%20VIP"
+         target="_blank"
+         class="btn-cta">
+        🔥 Reservar experiencia VIP
+      </a>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios">
+  <h2 class="neon-text">Nuestros Servicios</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="imagenes contenido/1.jpeg">
+      <div class="card-info"><h3>Acompañamiento VIP</h3></div>
+    </div>
+
+    <div class="card">
+      <img src="imagenes contenido/2.jpeg">
+      <div class="card-info"><h3>Eventos privados</h3></div>
+    </div>
+
+    <div class="card">
+      <img src="imagenes contenido/3.jpeg">
+      <div class="card-info"><h3>Experiencias premium</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- CARRUSEL -->
+<section class="carrusel">
+  <h2 class="neon-text">Galería</h2>
+
+  <div class="slider">
+    <div class="slide-track">
+
+      <img src="imagenes contenido/1.jpeg">
+      <img src="imagenes contenido/2.jpeg">
+      <img src="imagenes contenido/3.jpeg">
+      <img src="imagenes contenido/4.jpeg">
+      <img src="imagenes contenido/5.jpeg">
+      <img src="imagenes contenido/6.jpeg">
+      <img src="imagenes contenido/7.jpeg">
+      <img src="imagenes contenido/8.jpeg">
+      <img src="imagenes contenido/9.jpeg">
+      <img src="imagenes contenido/10.jpeg">
+
+      <img src="imagenes contenido/1.jpeg">
+      <img src="imagenes contenido/2.jpeg">
+      <img src="imagenes contenido/3.jpeg">
+      <img src="imagenes contenido/4.jpeg">
+      <img src="imagenes contenido/5.jpeg">
+      <img src="imagenes contenido/6.jpeg">
+      <img src="imagenes contenido/7.jpeg">
+      <img src="imagenes contenido/8.jpeg">
+      <img src="imagenes contenido/9.jpeg">
+      <img src="imagenes contenido/10.jpeg">
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria">
+  <h2 class="neon-text">
+    Ingresa aquí para conocer más de nuestras chicas
+  </h2>
+
+  <div class="grid">
+    <img src="imagenes contenido/4.jpeg" onclick="openLink()">
+    <img src="imagenes contenido/5.jpeg" onclick="openLink()">
+    <img src="imagenes contenido/6.jpeg" onclick="openLink()">
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="formulario">
+  <h2 class="neon-text center">Personaliza tu experiencia</h2>
+
+  <div class="center">
+    <a href="https://forms.gle/TU_LINK"
+       target="_blank"
+       class="btn-form">
+       Completar encuesta
+    </a>
+  </div>
+</section>
+
+<!-- REDES -->
+<div class="social-float">
+
+  <a href="https://wa.me/573145913001" target="_blank" class="icon">
+    <img src="iconos redes sociales/social_13670447.png">
+  </a>
+
+  <a href="https://www.instagram.com/sexycoffee1" target="_blank" class="icon">
+    <img src="iconos redes sociales/instagram_2626270.png">
+  </a>
+
+  <a href="https://www.facebook.com/share/1GbVQGf66Z/" target="_blank" class="icon">
+    <img src="iconos redes sociales/facebook_2626269.png">
+  </a>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="bg-music" loop>
+  <source src="musica/audio.mp3" type="audio/mpeg">
+</audio>
+
+<!-- BOTÓN AUDIO -->
+<div class="audio-control" onclick="toggleAudio()">🔊</div>
+
+<!-- JS AL FINAL (IMPORTANTE) -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init();
+
+/* AUDIO NIVEL DIOS */
+const audio = document.getElementById("bg-music");
+let isPlaying = false;
+
+audio.volume = 0;
+
+document.addEventListener("click", () => {
+  if (!isPlaying) {
+    audio.play();
+    fadeIn();
+    isPlaying = true;
+  }
+}, { once: true });
+
+function toggleAudio() {
+  const btn = document.querySelector(".audio-control");
+
+  if (audio.paused) {
+    audio.play();
+    fadeIn();
+    btn.innerHTML = "🔊";
+  } else {
+    fadeOut();
+    btn.innerHTML = "🔇";
+  }
+}
+
+function fadeIn() {
+  let vol = 0;
+  let fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.05;
+      audio.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+}
+
+function fadeOut() {
+  let vol = audio.volume;
+  let fade = setInterval(() => {
+    if (vol > 0) {
+      vol -= 0.05;
+      audio.volume = vol;
+    } else {
+      audio.pause();
+      clearInterval(fade);
+    }
+  }, 200);
+}
+
+function openLink() {
+  window.open("https://drive.google.com/TU_LINK_AQUI", "_blank");
+}
+</script>
+
+</body>
+</html>
