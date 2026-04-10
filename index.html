@@ -6,6 +6,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- FIX MOBILE -->
+  <meta name="theme-color" content="#050505">
+  <meta name="format-detection" content="telephone=no">
+
   <title>Sexy Coffee Tour | Experiencias VIP Exclusivas</title>
 
   <meta name="description" content="Agencia premium de experiencias VIP exclusivas.">
@@ -14,6 +18,13 @@
 
   <link rel="stylesheet" href="styles.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- EVITA SCROLL LATERAL -->
+  <style>
+    html, body {
+      overflow-x: hidden;
+    }
+  </style>
 
 </head>
 
@@ -140,7 +151,7 @@
 </section>
 
 <!-- REDES -->
-<div class="social-float">
+<div class="social-float social-mobile-fix">
 
   <a href="https://wa.me/573145913001" target="_blank" class="icon">
     <img src="iconos redes sociales/social_13670447.png">
@@ -164,7 +175,7 @@
 <!-- BOTÓN AUDIO -->
 <div class="audio-control" onclick="toggleAudio()">🔊</div>
 
-<!-- JS AL FINAL (IMPORTANTE) -->
+<!-- JS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
