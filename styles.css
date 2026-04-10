@@ -25,7 +25,7 @@ body {
   width: 40%;
 }
 
-/* OVERLAY CORREGIDO */
+/* OVERLAY */
 .overlay {
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@ body {
   align-items: center;
 }
 
-/* CONTENIDO CENTRAL */
+/* CONTENIDO */
 .hero-content {
   text-align: center;
   display: flex;
@@ -95,7 +95,7 @@ body {
   text-align: center;
 }
 
-/* RESTO IGUAL */
+/* CARDS */
 .cards {
   display: flex;
   justify-content: center;
@@ -107,11 +107,14 @@ body {
   width: 260px;
 }
 
-.slider { overflow: hidden; }
+/* CARRUSEL */
+.slider {
+  overflow: hidden;
+}
 
 .slide-track {
   display: flex;
-  animation: scroll 40s linear infinite;
+  animation: scroll 20s linear infinite; /* 🔥 más rápido */
 }
 
 .slide-track img {
@@ -120,9 +123,12 @@ body {
 }
 
 @keyframes scroll {
-  100% { transform: translateX(-50%); }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
+/* GALERIA */
 .grid {
   display: flex;
   justify-content: center;
@@ -134,7 +140,7 @@ body {
   cursor: pointer;
 }
 
-/* REDES */
+/* REDES (DESKTOP) */
 .social-float {
   position: fixed;
   right: 15px;
@@ -143,13 +149,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  z-index: 999;
 }
 
 .icon img {
   width: 40px;
 }
 
-/* MOBILE */
+/* 🔥 MOBILE FIX REAL */
 @media(max-width:768px){
 
   .hero-videos {
@@ -176,9 +183,32 @@ body {
   .subtext {
     font-size: 1rem;
   }
+
+  /* ✅ REDES ABAJO CENTRADAS */
+  .social-float {
+    top: auto;
+    bottom: 15px;
+    right: 50%;
+    transform: translateX(50%);
+    flex-direction: row;
+    background: rgba(0,0,0,0.6);
+    padding: 8px 12px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+  }
+
+  .icon img {
+    width: 35px;
+  }
+
+  /* 🔥 carrusel más fluido en móvil */
+  .slide-track {
+    animation: scroll 15s linear infinite;
+  }
+
 }
 
-/* AUDIO NIVEL DIOS */
+/* AUDIO */
 .audio-control {
   position: fixed;
   bottom: 20px;
