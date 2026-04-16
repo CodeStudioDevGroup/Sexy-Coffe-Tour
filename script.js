@@ -1,64 +1,43 @@
+// 🔥 INICIALIZAR AOS
 AOS.init();
 
-// MODAL
-function openModal(src) {
-  const modal = document.getElementById("modal");
-  const img = document.getElementById("modal-img");
 
-  modal.style.display = "flex";
-  img.src = src;
-}
+/* =========================
+   🎵 AUDIO NIVEL DIOS
+========================= */
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-AOS.init();
-
-// REDIRECCIÓN A GOOGLE DRIVE
-function openLink() {
-  window.open("https://drive.google.com/TU_LINK_AQUI", "_blank");
-}
-
-document.addEventListener("click", () => {
-  audio.play();
-}, { once: true });
-
-AOS.init();
-
-// AUDIO NIVEL DIOS
 const audio = document.getElementById("bg-music");
 let isPlaying = false;
 
 // Volumen inicial
 audio.volume = 0;
 
-// AUTO PLAY AL PRIMER CLICK
+// Auto play en primera interacción
 document.addEventListener("click", () => {
   if (!isPlaying) {
-    audio.play();
-    fadeIn(audio);
+    audio.play().catch(() => {});
+    fadeIn();
     isPlaying = true;
   }
 }, { once: true });
 
-// BOTÓN CONTROL
+// Botón control audio
 function toggleAudio() {
   const btn = document.querySelector(".audio-control");
 
   if (audio.paused) {
     audio.play();
-    fadeIn(audio);
+    fadeIn();
     btn.innerHTML = "🔊";
   } else {
-    fadeOut(audio);
+    fadeOut();
     btn.innerHTML = "🔇";
   }
 }
 
-// FADE IN
-function fadeIn(audio) {
+// Fade in
+function fadeIn() {
   let vol = 0;
-  audio.volume = 0;
 
   let fade = setInterval(() => {
     if (vol < 1) {
@@ -70,8 +49,8 @@ function fadeIn(audio) {
   }, 200);
 }
 
-// FADE OUT
-function fadeOut(audio) {
+// Fade out
+function fadeOut() {
   let vol = audio.volume;
 
   let fade = setInterval(() => {
@@ -85,7 +64,70 @@ function fadeOut(audio) {
   }, 200);
 }
 
-// LINK DRIVE
+
+/* =========================
+   🔞 AGE GATE NIVEL DIOS
+========================= */
+
+window.addEventListener("load", () => {
+  const gate = document.getElementById("age-gate");
+
+  // Bloquear scroll al inicio
+  document.body.style.overflow = "hidden";
+
+  // Si ya aceptó antes
+  if (localStorage.getItem("ageAccepted") === "true") {
+    gate.classList.remove("active");
+    gate.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});
+
+// Aceptar edad
+function acceptAge() {
+  localStorage.setItem("ageAccepted", "true");
+
+  const gate = document.getElementById("age-gate");
+
+  // Animación salida
+  gate.classList.remove("active");
+
+  setTimeout(() => {
+    gate.style.display = "none";
+    document.body.style.overflow = "auto";
+  }, 500);
+}
+
+// Salir del sitio
+function exitSite() {
+  window.location.href = "https://www.google.com";
+}
+
+
+/* =========================
+   🔗 LINKS
+========================= */
+
 function openLink() {
   window.open("https://drive.google.com/TU_LINK_AQUI", "_blank");
+}
+
+
+/* =========================
+   🖼️ MODAL (si lo usas después)
+========================= */
+
+function openModal(src) {
+  const modal = document.getElementById("modal");
+  const img = document.getElementById("modal-img");
+
+  if (modal && img) {
+    modal.style.display = "flex";
+    img.src = src;
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.style.display = "none";
 }

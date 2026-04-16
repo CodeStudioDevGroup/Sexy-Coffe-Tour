@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- FIX MOBILE -->
   <meta name="theme-color" content="#050505">
   <meta name="format-detection" content="telephone=no">
 
@@ -19,7 +18,6 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- EVITA SCROLL LATERAL -->
   <style>
     html, body {
       overflow-x: hidden;
@@ -30,9 +28,33 @@
 
 <body>
 
+<!-- 🔞 AGE GATE NIVEL DIOS -->
+<div id="age-gate" class="active">
+
+  <div class="age-box" id="age-box">
+
+    <h2 class="neon-text">🔞 Acceso exclusivo</h2>
+
+    <p class="age-text">
+      Esta web es solo para mayores de <strong>18 años</strong>.
+    </p>
+
+    <p class="age-text small">
+      Al continuar confirmas que cumples con la mayoría de edad
+      según la legislación de tu país.
+    </p>
+
+    <div class="age-buttons">
+      <button onclick="acceptAge()" class="btn-accept">Aceptar</button>
+      <button onclick="exitSite()" class="btn-exit">Salir</button>
+    </div>
+
+  </div>
+
+</div>
+
 <!-- HERO -->
 <section class="hero">
-
   <div class="hero-videos">
     <video autoplay muted loop playsinline>
       <source src="videos contenido/2.mp4">
@@ -49,7 +71,6 @@
 
   <div class="overlay">
     <div class="hero-content">
-
       <img src="logo.jpeg" class="logo">
 
       <h1 class="neon-text titulo">Sexy Coffee Tour</h1>
@@ -63,10 +84,8 @@
          class="btn-cta">
         🔥 Reservar experiencia VIP
       </a>
-
     </div>
   </div>
-
 </section>
 
 <!-- SERVICIOS -->
@@ -97,7 +116,7 @@
 
   <div class="slider">
     <div class="slide-track">
-
+      <!-- tus imágenes -->
       <img src="imagenes contenido/1.jpeg">
       <img src="imagenes contenido/2.jpeg">
       <img src="imagenes contenido/3.jpeg">
@@ -119,7 +138,6 @@
       <img src="imagenes contenido/8.jpeg">
       <img src="imagenes contenido/9.jpeg">
       <img src="imagenes contenido/10.jpeg">
-
     </div>
   </div>
 </section>
@@ -151,8 +169,7 @@
 </section>
 
 <!-- REDES -->
-<div class="social-float social-mobile-fix">
-
+<div class="social-float">
   <a href="https://wa.me/573145913001" target="_blank" class="icon">
     <img src="iconos redes sociales/social_13670447.png">
   </a>
@@ -164,7 +181,6 @@
   <a href="https://www.facebook.com/share/1GbVQGf66Z/" target="_blank" class="icon">
     <img src="iconos redes sociales/facebook_2626269.png">
   </a>
-
 </div>
 
 <!-- AUDIO -->
@@ -172,7 +188,6 @@
   <source src="musica/audio.mp3" type="audio/mpeg">
 </audio>
 
-<!-- BOTÓN AUDIO -->
 <div class="audio-control" onclick="toggleAudio()">🔊</div>
 
 <!-- JS -->
@@ -181,7 +196,7 @@
 <script>
 AOS.init();
 
-/* AUDIO NIVEL DIOS */
+/* AUDIO */
 const audio = document.getElementById("bg-music");
 let isPlaying = false;
 
@@ -189,7 +204,7 @@ audio.volume = 0;
 
 document.addEventListener("click", () => {
   if (!isPlaying) {
-    audio.play();
+    audio.play().catch(()=>{});
     fadeIn();
     isPlaying = true;
   }
@@ -214,9 +229,7 @@ function fadeIn() {
     if (vol < 1) {
       vol += 0.05;
       audio.volume = vol;
-    } else {
-      clearInterval(fade);
-    }
+    } else clearInterval(fade);
   }, 200);
 }
 
@@ -231,6 +244,35 @@ function fadeOut() {
       clearInterval(fade);
     }
   }, 200);
+}
+
+/* 🔞 AGE GATE NIVEL DIOS (BASE) */
+window.addEventListener("load", () => {
+  const gate = document.getElementById("age-gate");
+
+  document.body.style.overflow = "hidden";
+
+  if(localStorage.getItem("ageAccepted") === "true"){
+    gate.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+});
+
+function acceptAge(){
+  localStorage.setItem("ageAccepted", "true");
+
+  const gate = document.getElementById("age-gate");
+
+  gate.classList.remove("active");
+
+  setTimeout(() => {
+    gate.style.display = "none";
+    document.body.style.overflow = "auto";
+  }, 500);
+}
+
+function exitSite(){
+  window.location.href = "https://www.google.com";
 }
 
 function openLink() {
